@@ -1,0 +1,18 @@
+    Proyecto Hidrosol Piscinas
+    
+    ***********************
+    * ALCANCE Y OBJETIVOS *
+    ***********************
+
+    Con este proyecto se debe lograr consegir:
+    - Generar usuarios y contraseñas con distintos permisos de acceso
+    - Generar un presupuesto de acuerdo a los datos ingresados por el usuario
+    - Los datos deben almacenarse en una base de datos para poder extraer de alli los datos de los clientes y conseguir rrellenar el formulario 
+
+
+    ****************
+    * TECNOLOGIAS *
+    ****************
+
+    - Django con Flask
+    - Base de datos SQL
