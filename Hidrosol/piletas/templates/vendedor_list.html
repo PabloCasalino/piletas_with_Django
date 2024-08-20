@@ -1,0 +1,16 @@
+<!-- myapp/templates/myapp/vendedor_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Vendedores</title>
+</head>
+<body>
+    <h1>Vendedores</h1>
+    <ul>
+        {% for vendedor in vendedores %}
+            <li>{{ vendedor.nombre }} - <a href="{% url 'vendedor_update' vendedor.pk %}">Editar</a> - <a href="{% url 'vendedor_delete' vendedor.pk %}">Eliminar</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'vendedor_create' %}">Crear nuevo vendedor</a>
+</body>
+</html>

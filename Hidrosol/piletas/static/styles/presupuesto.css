@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.container{
+    display: flex;
+}
+
+.columna {
+    padding: 20px;
+}
+
+input {
+    border-style: none;
+}
+
+.detalle {
+    font-size: 19px;
+    text-decoration: underline;
+    padding: 6px 0px 6px 0px;
+}
+
+.description-container {
+    font-size: 19px;
+    margin-left: 5px;
+}
+
+.description-items {
+    padding: 6px 0px 6px 0px;
+}
+
+.contado {
+    text-align: center;
+    font-size: 23px;
+    margin-top: 10px;
+    width: 800px;
+    height: 30px;
+    background-color: rgb(143, 186, 226);
+    padding-bottom: 3px 0px 3px 0px;
+}
+
+.aviso {
+    text-align: center;
+    font-size: 23px;
+    margin-top: 10px;
+    width: 800px;
+    height: 30px;
+    background-color: rgb(143, 186, 226);
+    padding-bottom: 3px 0px 3px 0px;
+}
+
+.precio {
+    margin-right: 10px ;
+}
+
+.texto {
+    padding: 2px;
+}
+
+.footer {
+    width: 800px;
+}

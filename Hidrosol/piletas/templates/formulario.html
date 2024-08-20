@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario</title>
+  <link rel="stylesheet" href="{% static 'styles/formulario.css' %}" />
+
+</head>
+
+<body>
+  <!-- FORMULARIO -->
+  <!-- <form id="formulario" method="POST">
+    <label>Nombre y Apellido:</label>
+    <input id="nombre" type="text">
+    <label>Teléfono</label>
+    <input id="telefono" type="number">
+    <label>Barrio</label>
+    <input id="barrio" type="text" >
+    <label>Fecha</label>
+    <input id="fecha" type="date">
+    <label>Vendedor</label>
+    <input id="vendedor" type="text">
+    <label>E-mail</label>
+    <input id="email" type="email">
+    <label> Modelo</label>
+    <div id="select">
+      <select name="modelo" id="modelo_select">
+        <option value="M-RH505">M-RH505</option>
+        <option value="M-RH605">M-RH605</option>
+        <option value="M-RH705">M-RH705</option>
+        <option value="M-RH805">M-RH805</option>
+        <option value="M-RC400">M-RC400</option>
+        <option value="M-RC500">M-RC500</option>
+        <option value="M-RC600">M-RC600</option>
+        <option value="M-RC700">M-RC700</option>
+        <option value="M-RC800">M-RC800</option>
+        <option value="M-RC900">M-RC900</option>
+        <option value="M-AR650">M-AR650</option>
+        <option value="M-AR750">M-AR750</option>
+        <option value="M-AR850">M-AR850</option>
+        <option value="M-AR950">M-AR950</option>
+        <option value="M-BE385">M-BE385</option>
+        <option value="M-BE390">M-BE390</option>
+        <option value="M-BE490">M-BE490</option>
+        <option value="M-BE590">M-BE590</option>
+        <option value="M-BE680">M-BE680</option>
+        <option value="M-BE780">M-BE780</option>
+        <option value="M-SH585">M-SH585</option>
+        <option value="M-SH675">M-SH675</option>
+        <option value="M-SH775">M-SH775</option>
+        <option value="M-DB360">M-DB360</option>
+        <option value="M-DB395">M-DB395</option>
+        <option value="M-SP200">M-SP200</option>
+      </select>
+    </div>
+    <button class="button" type="submit">Proceder</button>
+    <button class="button" type="submit" onclick="erease(event)">Borrar</button>
+
+  </form> -->
+
+  <form id="formulario" method="POST">
+    {% csrf_token %}
+    <label>Nombre</label>
+    {{ form.nombre }}
+
+    <label>Apellido</label>
+    {{ form.apellido }}
+
+    <label>Teléfono</label>
+    {{ form.telefono }}
+
+    <label>Barrio</label>
+    {{ form.barrio }}
+
+    <label>Fecha:</label>
+    {{form.fecha}}
+
+    <label>Vendedor:</label>
+    {{ form.vendedor }}
+
+    <label>Email</label>
+    {{ form.email }}
+
+    <label>Modelo</label>
+    {{ form.modelo }}
+
+    <button class="btn" type="submit">Proceder</button>
+    <button class="btn" type="reset">Borrar</button>
+ 
+  </form>
+
+  <script src="{% static 'scripts/formulario.js %}"></script>
+</body>
+
+</html>

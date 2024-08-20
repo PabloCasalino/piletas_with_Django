@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presupuesto Hidrosol</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/presupuesto.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <img src="../static/img/header.png" alt="Encabezado" />
+    </header>
+
+    <!-- Formulario -->
+    <main>
+        <div class="container">
+            <div class="columna">
+                <form>
+                    <div class="formulario-items">
+                        <label for="nombre">Nombre y Apellido:</label>
+                        <input type="text" id="nombre" name="nombre" required />
+                    </div>
+                    <div class="formulario-items">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="number" id="telefono" name="telefono" required />
+                    </div>
+                    <div class="formulario-items">
+                        <label for="barrio">Barrio:</label>
+                        <input type="text" id="barrio" name="barrio" required />
+                    </div>
+                </form>
+            </div>
+            <div class="columna">
+                <form>
+                    <div class="formulario-items">
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" id="fecha" name="fecha" required />
+                    </div>
+                    <div class="formulario-items">
+                        <label for="vendedor">Vendedor:</label>
+                        <input type="text" id="vendedor" name="vendedor" required />
+                    </div>
+                    <div class="formulario-items">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Detalle -->
+        <div class="detalle">
+            <p><strong>NUESTRO PRESUPUESTO INCLUYE:</strong></p>
+        </div>
+        <div class="description-container">
+            <p class="description-items"><strong>PISCINA:</strong> Plástica Reforzada con fibra de vidrio marca MOLDEAR</p>
+            <p class="description-items"><strong>MODELO:</strong> <span id="familia">Familia</span> MODELO <span id="modelo_presupuesto"></span> MEDIDAS: <span id="medida"></span></p>
+            <p class="description-items"><strong>VEREDA:</strong> Borde perimetral de 50cm de losetas atérmicas, antideslizantes, anti-reflex marca MOLDEAR</p>
+            <p class="description-items"><strong>EQUIPAMIENTO:</strong> Sistema de filtración fijo en casilla compuesto por tanque, carga filtrante y <br /> electrobomba marca VULCANO</p>
+            <p class="description-items"><strong>CAÑERÍA:</strong> Cañería de PVC especial marca TIGRE clase 10. Apta para agua fría/caliente</p>
+            <p class="description-items"><strong>KIT DE LIMPIEZA:</strong> Elementos necesarios para la limpieza de piscina, el cual incluye limpiafondo, <br /> sacahojas, manguera flotante y mango telescópico marca VULCANO</p>
+            <p class="description-items"><strong>INSTALACIÓN DE PISCINA:</strong> Instalación básica en terrenos normales, sin pendiente, ni rocosos <br /> (SE ADJUNTA DETALLE)*</p>
+            <p class="description-items"><strong>LOGÍSTICA Y MATERIALES:</strong> Materiales y contenedores para la instalación en terrenos normales <br /> (SE ADJUNTA DETALLE)*</p>
+        </div>
+
+        <!-- Precio -->
+        <div class="contado">
+            <p class="texto">
+                <strong><span class="promo">PRECIO PROMOCIONAL DE CONTADO $ </span><span id="precio"></span></strong>
+            </p>
+        </div>
+
+        <p class="texto aviso"><strong>CONSULTANOS POR NUESTRA FINANCIACIÓN</strong></p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <img class="footer" src="../static/img/footer.png" alt="Pie de página" />
+    </footer>
+
+    <script src="../static/scripts/presupuesto.js"></script>
+</body> 
+
+</html>
