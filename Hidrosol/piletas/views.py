@@ -16,6 +16,28 @@ def cliente_list(request):
     return render(request, 'piletas/cliente_list.html', {'clientes': clientes})
 
 
+# def cliente_create(request):
+#     if request.method == 'POST':
+#         form = ClienteForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('cliente_list')
+#     else:
+#         form =ClienteForm()
+#         return render(request, 'piletas/cliente/form.html', {'form': form})
+    
+
+# def cliente_update(request, pk):
+#     cliente = get_object_or_404(Cliente, pk=pk)
+#     if request.method == 'POST':
+#         form = ClienteForm(request.POST, instance=cliente)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('cliente_list')
+#     else:
+#         form = ClienteForm(instance=cliente)
+#     return render(request, 'formulario.html', {'form': form})
+
 def cliente_create(request):
     if request.method == 'POST':
         form = ClienteForm(request.POST)
@@ -23,9 +45,8 @@ def cliente_create(request):
             form.save()
             return redirect('cliente_list')
     else:
-        form =ClienteForm()
-        return render(request, 'piletas/cliente/form.html', {'form': form})
-    
+        form = ClienteForm()
+    return render(request, 'piletas/cliente_form.html', {'form': form})
 
 def cliente_update(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
@@ -36,10 +57,43 @@ def cliente_update(request, pk):
             return redirect('cliente_list')
     else:
         form = ClienteForm(instance=cliente)
-    return render(request, 'formulario.html', {'form': form})
+    return render(request, 'piletas/cliente_form.html', {'form': form})
+
+def cliente_delete(request, pk):
+    cliente = get_object_or_404(Cliente, pk=pk)
+    if request.method == 'POST':
+        cliente.delete()
+        return redirect('cliente_list')
+    return render(request, 'piletas/cliente_confirm_delete.html', {'cliente': cliente})
 
 
 # CRUD para Piletas
+
+def pileta_list(request):
+    piletas = Piletas.objects.all()
+    return render(request, 'piletas/pileta_list.html', {'piletas': piletas})
+
+
+# def pileta_create(request):
+#     if request.method == 'POST':
+#         form = PiletasForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('pileta_list')
+#     else:
+#         form = PiletasForm()
+#     return render(request, 'formulario.html', {'form': form})
+
+# def pileta_update(request, pk):
+#     pileta = get_object_or_404(Piletas, pk=pk)
+#     if request.method == 'POST':
+#         form = PiletasForm(request.POST, instance=pileta)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('pileta_list')
+#     else:
+#         form = PiletasForm(instance=pileta)
+#     return render(request, 'formulario.html', {'form': form})
 
 def pileta_create(request):
     if request.method == 'POST':
@@ -49,7 +103,7 @@ def pileta_create(request):
             return redirect('pileta_list')
     else:
         form = PiletasForm()
-    return render(request, 'formulario.html', {'form': form})
+    return render(request, 'piletas/pileta_form.html', {'form': form})
 
 def pileta_update(request, pk):
     pileta = get_object_or_404(Piletas, pk=pk)
@@ -60,7 +114,16 @@ def pileta_update(request, pk):
             return redirect('pileta_list')
     else:
         form = PiletasForm(instance=pileta)
-    return render(request, 'formulario.html', {'form': form})
+    return render(request, 'piletas/pileta_form.html', {'form': form})
+
+def pileta_delete(request, pk):
+    pileta = get_object_or_404(Piletas, pk=pk)
+    if request.method == 'POST':
+        pileta.delete()
+        return redirect('pileta_list')
+    return render(request, 'piletas/pileta_confirm_delete.html', {'pileta': pileta})
+
+
 
 
 # RUTAS para VENDEDOR

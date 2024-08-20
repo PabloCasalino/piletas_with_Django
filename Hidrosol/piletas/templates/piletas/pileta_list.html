@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Piletas</title>
+    <link rel="stylesheet" href="{% static 'styles/formulario.css' %}">
+</head>
+
+<body>
+    <h1>Lista de Piletas</h1>
+
+    <a href="{% url 'pileta_create' %}" class="btn">Añadir Nueva Pileta</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Familia</th>
+                <th>Modelo</th>
+                <th>Medidas</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pileta in piletas %}
+                <tr>
+                    <td>{{ pileta.familia }}</td>
+                    <td>{{ pileta.modelo }}</td>
+                    <td>{{ pileta.medidas }}</td>
+                    <td>{{ pileta.precio }}</td>
+                    <td>
+                        <a href="{% url 'pileta_update' pileta.pk %}">Editar</a> |
+                        <a href="{% url 'pileta_delete' pileta.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">No hay piletas registradas.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

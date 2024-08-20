@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pileta</title>
+    <link rel="stylesheet" href="{% static 'styles/formulario.css' %}">
+</head>
+
+<body>
+    <h1>{{ form.instance.pk|yesno:"Editar Pileta,Nueva Pileta" }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn" type="submit">Guardar</button>
+        <a href="{% url 'pileta_list' %}" class="btn">Cancelar</a>
+    </form>
+</body>
+
+</html>
