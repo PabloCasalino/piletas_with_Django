@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Cliente, Piletas
-from .forms import ClienteForm, PiletasForm
+from .forms import ClienteForms, PiletasForm
 
 # Create your views here.
 def formulario(request):
@@ -40,23 +40,23 @@ def cliente_list(request):
 
 def cliente_create(request):
     if request.method == 'POST':
-        form = ClienteForm(request.POST)
+        form = ClienteForms(request.POST)
         if form.is_valid():
             form.save()
             return redirect('cliente_list')
     else:
-        form = ClienteForm()
+        form = ClienteForms()
     return render(request, 'piletas/cliente_form.html', {'form': form})
 
 def cliente_update(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
     if request.method == 'POST':
-        form = ClienteForm(request.POST, instance=cliente)
+        form = ClienteForms(request.POST, instance=cliente)
         if form.is_valid():
             form.save()
             return redirect('cliente_list')
     else:
-        form = ClienteForm(instance=cliente)
+        form = ClienteForms(instance=cliente)
     return render(request, 'piletas/cliente_form.html', {'form': form})
 
 def cliente_delete(request, pk):
@@ -134,7 +134,7 @@ from .forms import VendedorForm
 
 def vendedor_list(request):
     vendedores = Vendedor.objects.all()
-    return render(request, 'myapp/vendedor_list.html', {'vendedores': vendedores})
+    return render(request, 'templates/piletas/vendedor_list.html', {'vendedores': vendedores})
 
 def vendedor_create(request):
     if request.method == 'POST':
@@ -143,8 +143,12 @@ def vendedor_create(request):
             form.save()
             return redirect('vendedor_list')
     else:
+        
         form = VendedorForm()
-    return render(request, 'myapp/formulario.html', {'form': form})
+    print(form.as_p())
+    return render(request, 'piletas/formulario.html', {'form': form})
+
+
 
 def vendedor_update(request, pk):
     vendedor = get_object_or_404(Vendedor, pk=pk)
@@ -155,7 +159,7 @@ def vendedor_update(request, pk):
             return redirect('vendedor_list')
     else:
         form = VendedorForm(instance=vendedor)
-    return render(request, 'myapp/formulario.html', {'form': form})
+    return render(request, 'piletas/formulario.html', {'form': form})
 
 def vendedor_delete(request, pk):
     vendedor = get_object_or_404(Vendedor, pk=pk)
